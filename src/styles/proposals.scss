@@ -1,0 +1,23 @@
+.proposal-cube{
+	.express-post-header{
+		padding: 0 0 10px 0;
+		text-decoration: none;
+
+		a{
+			font-weight: bold;
+			text-decoration: none;
+			font-size: 14px;
+
+			&:hover{
+				text-decoration: underline;
+			}
+		}
+	}
+	.express-content{
+		padding: 0 0 10px 0;
+	}
+	.express-sub-text{
+		padding: 0 0 10px 0;
+
+	}
+}
