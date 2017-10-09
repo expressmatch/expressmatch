@@ -23,8 +23,8 @@ class SubmitPost extends React.Component {
   }
 
   handleOnSubmit(e){
-       alert("Submit");
-
+    alert("Submit");
+    
   }
 
   render() {

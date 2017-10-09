@@ -12,10 +12,9 @@ class Navigator extends React.Component{
 	}
 
 	navigate(e){
-
 		switch(true){
 			case !!(e.target.classList.contains("post")):
-				history.push('/post');
+				history.push('/post'); //TODO: Move to Redux Lifecycle
 				break;
 
 			case !!(e.target.classList.contains("proposals")):
@@ -29,15 +28,6 @@ class Navigator extends React.Component{
 			default:
 				
 		}
-		this.updateSelection(e.target);
-	}
-
-	updateSelection(nav){
-		if(!nav) {
-			console.log("Navigation Option not correct");
-			return;
-		}
-
 	}
 
 	render(){
@@ -45,7 +35,7 @@ class Navigator extends React.Component{
 			<div className="navigator">
 				<div className="nav-container">
 			    	<ul className="nav-items" onClick={this.navigate}>
-			    		<li className="post">Express</li>
+			    		<li className="selected post">Express</li>
 			    		<li className="proposals">Proposals</li>
 			    		<li className="logout">Logout</li>
 					</ul>
