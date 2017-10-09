@@ -13,14 +13,14 @@
 			padding: 0 0 10px 0;
 			display: flex;
 
-			.field-name{
+			.field-label{
 				width: 25%;
 				padding: 5px 0 0 5px;
 				user-select: none;
 				font-weight: 600;
 				font-size: 13px;
 			}
-			.field-value{
+			.field-content{
 
 			}
 
@@ -45,6 +45,7 @@
 			select{
 				outline: none;
 				height: 25px;
+				width: 70px;
 			}
 			button.submit{
 				font-size: 15px;

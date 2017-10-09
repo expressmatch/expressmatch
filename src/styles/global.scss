@@ -96,3 +96,14 @@ ul {
 		}
 	}
 }
+// ------- Redux Form Fields -------- //
+form{
+	.field{
+		.error,.warning{
+			display: block;
+			padding: 2px 5px;
+			font-size: 12px;
+			font-weight: bold;
+		}
+	}
+}

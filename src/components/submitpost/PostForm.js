@@ -1,13 +1,13 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
-const required = value => (value ? undefined : 'Required')
+const required = value => (value ? undefined : 'Required field')
 const maxLength = max => value =>
   value && value.length > max ? `Must be ${max} characters or less` : undefined
 const maxLength15 = maxLength(15)
 export const minLength = min => value =>
   value && value.length < min ? `Must be ${min} characters or more` : undefined
-export const minLength2 = minLength(2)
+export const minLength200 = minLength(200)
 const number = value =>
   value && isNaN(Number(value)) ? 'Must be a number' : undefined
 const minValue = min => value =>
@@ -36,30 +36,49 @@ const renderField = ({
   input,
   label,
   type,
+  value,
+  options,
+  radiolabel,
+  placeholder,
+  maxlength,
   meta: { touched, error, warning }
 }) =>
-  <div>
-    <label>
-      {label}
-    </label>
-    <div>
-      <input {...input} placeholder={label} type={type} />
+  <span className="field">
+      { type == 'radio' && (
+        <span>
+          <label>
+            <input {...input} type={type} />
+            {radiolabel}
+          </label>
+        </span>
+      )}
+      { type == 'select' && (
+        <select {...input}> 
+          {options} 
+        </select>
+      )}
+      { type == 'textarea' && (
+        <textarea {...input} placeholder={placeholder} maxLength={maxlength}></textarea>
+      )}
+      { type == 'text' && (
+        <input {...input} placeholder={placeholder} type={type} />
+      )}  
       {touched &&
         ((error &&
-          <span>
+          <span className="error">
             {error}
           </span>) ||
           (warning &&
-            <span>
+            <span className="warning">
               {warning}
             </span>))}
-    </div>
-  </div>
+  </span>
 
 const PostForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props;
   
   let age = [];
+  age.push(<option key="0">Select</option>);
   for( var i=18; i<=100; i++ ){
     age.push(<option key={i}>{i}</option>);
   }
@@ -72,57 +91,61 @@ const PostForm = props => {
           <div className="form-header">Express and Find your Match</div>
         </div>
         <div className="row">
-          <div className="field-name">Age</div>
-          <div className="field-value">
-            <Field name="sex" component="select">
-              {age}
-            </Field>
+          <div className="field-label">Age</div>
+          <div className="field-content">
+            <Field 
+              name="age" 
+              type="select"
+              component={renderField}
+              options={age}
+            />
           </div>
         </div>
         <div className="row">
-          <div className="field-name">Gender</div>
-          <div className="field-value">
-            <label>
-              <input type="radio" name="gender" value="male" />
-                <span>Male</span>
-            </label>
-            <label>
-              <input type="radio" name="gender" value="female" />
-                Female
-            </label>
+          <div className="field-label">Gender</div>
+          <div className="field-content">
+            <Field 
+              name="gender"
+              type="radio"
+              component={renderField}
+              value="male"
+              radiolabel="Male"
+            />
+            <Field 
+              name="gender"
+              type="radio"
+              component={renderField}
+              value="female"
+              radiolabel="Female"
+            />
           </div>
         </div>
         <div className="row">
-          <div className="field-name">City</div>
-          <div className="field-value"><input type="text" placeholder="Enter your city"/>
+          <div className="field-label">City</div>
+          <div className="field-content">
             <Field
               name="city"
               type="text"
-              component="text"
-              label="city"
-              validate={[required, maxLength15, minLength2]}
+              component={renderField}
+              placeholder="Enter your city"
+              validate={[required, maxLength15]}
               warn={alphaNumeric}
             />
           </div>
         </div>
         <div className="row">
-          <div className="field-name">Let your creative minds take off, Express!</div>
-          <div className="field-value">
-            <textarea maxLength="500" placeholder="Tell us about yourself and your expectations..."/>
+          <div className="field-label">Let your creative minds take off, Express!</div>
+          <div className="field-content">
+            <Field
+              name="content"
+              type="textarea"
+              component={renderField}
+              maxlength="500"
+              placeholder="Tell us about yourself and your expectations..."
+              validate={[required, minLength200]}
+            />
           </div>
         </div>
-        {/*<div className="row">
-          <div className="field-name">Name</div>
-          <div className="field-value"><input type="text"/></div>
-        </div>
-        <div className="row">
-          <div className="field-name">Email</div>
-          <div className="field-value"><input type="text"/></div>
-        </div>
-        <div className="row">
-          <div className="field-name">Phone</div>
-          <div className="field-value"><input type="text"/></div>
-        </div>*/}
         <div className="row">
           <button className="submit">Express</button>
         </div>
