@@ -8,7 +8,6 @@ class Navigator extends React.Component{
 		super(props);
 
 		this.navigate = this.navigate.bind(this);
-		this.updateSelection = this.updateSelection.bind(this);
 	}
 
 	navigate(e){
