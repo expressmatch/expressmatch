@@ -4,6 +4,7 @@
 /* Styles */
 body, html {
   height: 100%;
+  overflow: hidden;
 }
 body {
   font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -13,7 +14,6 @@ body {
   -moz-font-smoothing: antialiased;
   font-smoothing: antialiased;
   font-weight: 300px;
-  background-color: #E8E8E8;
 }
 
 
@@ -28,11 +28,7 @@ body {
     background-color: #E8E8E8;
 
     .header{
-      margin: 0 0 2px 0;
-      padding: 5px;
-      background-color: #fff;
-      height: 45px;
-      min-height: 45px;
+      min-height: 55px;
     }
     .content-container{
       display: flex;
@@ -45,14 +41,12 @@ body {
       }
       .middle-content{
         padding: 10px 5px;
-        margin: 0 2px 0 0;
         min-width: 490px;
         flex: 1 auto;
-        background-color: #fff;
 
         .content-area{
           overflow-y: auto;
-          height: 100%;
+          height: calc(100vh - 100px);
           margin: 0 5px 10px 5px;
 
           .proposal-cube{
@@ -84,12 +78,14 @@ body {
           .proposal-cube:first-child{
             margin: 0 0 10px 0;
           }
+          .proposal-cube:last-child{
+            margin: 10px 0 0 0;
+          }
         }
       }
       .right-content{
         padding: 5px;
         min-width: 230px;
-        background-color: #fff;
       }
     }
     .footer{
@@ -99,6 +95,9 @@ body {
       height: 40px;
       flex:none;
     }
+  }
+  .left-area,.main-area,.right-area, .navigator, .middle-content,.right-content{
+    border: 1px solid;
   }
 }
 

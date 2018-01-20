@@ -2,19 +2,18 @@
 	display: flex;
 
 	.left-area{
-		min-width: 185px;
+		min-width: 180px;
 		padding: 5px;
-        margin: 0 2px 0 0;
 	}
 	.main-area{
 		flex: 1 0 auto;
-		min-width: 410px;
+		min-width: 490px;
 		padding: 5px 5px;
-    margin: 0 2px 0 0;
 
     .app-header{
       user-select: none;
-    	font-weight: bold;
+      text-align: center;
+      font-weight: bold;
     	font-size: 20px;
     	text-transform: uppercase;
     	border: 1px solid #e9e9e9;
@@ -37,7 +36,7 @@
     }
 	}
 	.right-area{
-		min-width: 190px;
+		min-width: 230px;
 		padding: 5px;
 	}
 }
