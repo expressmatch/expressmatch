@@ -85,7 +85,7 @@ const PostForm = props => {
 
   return (
 
-    <form onSubmit={handleSubmit} className="post-form" name="proposal">
+    <form onSubmit={handleSubmit} className="post-form" name="post">
       <div className="form-container">
         <div className="row">
           <div className="form-header">Express and Find your Match</div>

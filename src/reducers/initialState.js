@@ -4,9 +4,9 @@ export default {
   	  selectedItem: "proposals"
   	}
   },
-  proposals: [],
+  posts: [],
   isFetching: false,
-  proposalsFromUser: 0,
+  postsFromUser: 0,
   loginTime: new Date(),
   userPreference: {
 

@@ -2,15 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as actions from '../actions/proposalActions';
+import * as actions from '../actions/postActions';
 
-class ProposalPage extends React.Component {
+class PostPage extends React.Component {
   constructor(props){
     super(props);
   }
 
   componentDidMount(){
-    this.props.actions.getProposals();
+    this.props.actions.getPosts();
   }
   componentWillMount(){
     
@@ -22,10 +22,10 @@ class ProposalPage extends React.Component {
   render() {
     return (
       <div className="content-area">
-        {this.props.proposals && this.props.proposals.length && this.props.proposals[0].map((item,index) => (
-          <div className="proposal-cube" key={index}>
+        {this.props.posts && this.props.posts.length && this.props.posts[0].map((item,index) => (
+          <div className="post-cube" key={index}>
             <div className="post-content">
-            <div className="express-post-header"><a href="#">{item.title}</a></div>
+            <div className="express-post-header"></div>
             <div className="express-content">{item.content}</div>
             <div className="express-sub-text express-pill">
               <span className="express-pill-label">Posted</span>
@@ -50,14 +50,14 @@ class ProposalPage extends React.Component {
 }
 
 
-ProposalPage.propTypes = {
+PostPage.propTypes = {
   actions: PropTypes.object.isRequired,
-  proposals: PropTypes.array.isRequired
+  posts: PropTypes.array.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
   return {
-    proposals: state.proposalReducer.proposals
+    posts: state.postReducer.posts
   };
 }
 
@@ -70,4 +70,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ProposalPage);
+)(PostPage);

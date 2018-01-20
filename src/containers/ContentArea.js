@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as actions from '../actions/proposalActions';
-import ProposalPage from './ProposalPage';
+import * as actions from '../actions/postActions';
+import PostPage from './PostPage';
 import SubmitPost from '../components/submitpost/SubmitPost';
 import NotFoundPage from '../components/NotFoundPage';
 import { Switch, Route, withRouter } from 'react-router'
@@ -26,7 +26,7 @@ class ContentArea extends React.Component {
   render() {
     return (
       <Switch>
-          <Route exact path="/" component={ProposalPage} />
+          <Route exact path="/" component={PostPage} />
           <Route path="/post" component={SubmitPost} />
           <Route component={NotFoundPage} />
       </Switch>
@@ -41,7 +41,7 @@ ContentArea.propTypes = {
 
 function mapStateToProps(state, ownProps) {
   return {
-    //proposals: state.proposalReducer.proposals
+    //proposals: state.postReducer.posts
   };
 }
 

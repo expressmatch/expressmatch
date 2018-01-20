@@ -49,7 +49,7 @@ body {
           height: calc(100vh - 100px);
           margin: 0 5px 10px 5px;
 
-          .proposal-cube{
+          .post-cube{
             font-size: 13px;
             margin: 20px 0;
 
@@ -75,10 +75,10 @@ body {
               }
             }
           }
-          .proposal-cube:first-child{
+          .post-cube:first-child{
             margin: 0 0 10px 0;
           }
-          .proposal-cube:last-child{
+          .post-cube:last-child{
             margin: 10px 0 0 0;
           }
         }
@@ -96,8 +96,10 @@ body {
       flex:none;
     }
   }
-  .left-area,.main-area,.right-area, .navigator, .middle-content,.right-content{
-    border: 1px solid;
+  .left-area,.main-area,.right-area, {}
+  .navigator, .middle-content,.right-content{
+    border: 2px solid #dfdfdf;
+    ;
   }
 }
 

@@ -16,7 +16,7 @@ class Navigator extends React.Component{
 				history.push('/post'); //TODO: Move to Redux Lifecycle
 				break;
 
-			case !!(e.target.classList.contains("proposals")):
+			case !!(e.target.classList.contains("posts")):
 				history.push('/');
 				break;
 
@@ -35,7 +35,8 @@ class Navigator extends React.Component{
 				<div className="nav-container">
 			    	<ul className="nav-items" onClick={this.navigate}>
 			    		<li className="selected post">Express</li>
-			    		<li className="proposals">Proposals</li>
+			    		<li className="posts">Posts</li>
+			    		<li className="profile">Profile</li>
 			    		<li className="logout">Logout</li>
 					</ul>
 				</div>

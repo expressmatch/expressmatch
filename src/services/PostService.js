@@ -1,29 +1,29 @@
-export function getProposals(){
+export function getPosts(){
 	return new Promise((resolve, reject) => {
-		fetch('http://localhost:3004/proposals', {})
+		fetch('http://localhost:3004/posts', {})
 			.then((res) => res.json())
 			.then((data) => resolve(data))
 			.catch(err => reject(err));
 	});
 };
-export function getProposalsByCity(){
+export function getPostsByCity(){
 	function processResponse(data){
 		return data;
 	}
 
 	return new Promise((resolve, reject) => {
-		getProposals()
+		getPosts()
 			.then((res) => res.json())
 			.then((data) => resolve(processResponse(data)))
 			.catch(err => reject(err));
 	});
 }
-export function getProposalsByGender(){}
-export function getProposalsByKeyword(){}
-export function getProposalsByCaste(){}
+export function getPostsByGender(){}
+export function getPostsByKeyword(){}
+export function getPostsByCaste(){}
 
-const ProposalService = {
-	getProposals: getProposals
+const PostService = {
+	getPosts: getPosts
 };
 
-export default ProposalService;
+export default PostService;

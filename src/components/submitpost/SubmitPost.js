@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as actions from '../../actions/proposalActions';
+import * as actions from '../../actions/postActions';
 import PostForm from "./PostForm";
 
 class SubmitPost extends React.Component {
@@ -13,7 +13,7 @@ class SubmitPost extends React.Component {
   }
 
   componentDidMount(){
-    //this.props.actions.getProposals();
+    //this.props.actions.getPosts();
   }
   componentWillMount(){
     
@@ -43,7 +43,7 @@ SubmitPost.propTypes = {
 
 function mapStateToProps(state, ownProps) {
   return {
-    //proposals: state.proposalReducer.proposals
+    //posts: state.proposalReducer.posts
   };
 }
 
