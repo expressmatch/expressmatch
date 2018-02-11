@@ -16,3 +16,23 @@ export function getPostsSuccess(posts){
 export function getPostsFailure(error){
   return { type: types.GET_POSTS_FAILURE, error };
 }
+/*-------- FETCH POSTS - END ---------*/
+
+/*-------- SUBMIT POST - START ---------*/
+export function submitPost(req) {
+  return (dispatch, getState, service ) => {
+    service.submitPost(req).then(data => {
+      dispatch(submitPostSuccess(data));
+    }).catch( error => {
+      dispatch(submitPostFailure(error));
+    })
+  };
+}
+export function submitPostSuccess(data){
+  return { type: types.SUBMIT_POST_SUCCESS, data};
+}
+export function submitPostFailure(error){
+  return { type: types.SUBMIT_POST_FAILURE, error };
+}
+/*-------- SUBMIT POST - END ---------*/
+

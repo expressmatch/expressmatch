@@ -2,7 +2,6 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var postSchema = new Schema({
-
 	id: ObjectId,
 	content: String, 
 	dateCreated: Date, 

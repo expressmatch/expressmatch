@@ -23,8 +23,7 @@ class SubmitPost extends React.Component {
   }
 
   handleOnSubmit(e){
-    alert("Submit");
-    
+    this.props.actions.submitPost(e);
   }
 
   render() {
