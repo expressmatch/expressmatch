@@ -16,7 +16,9 @@ body {
   font-weight: 300px;
 }
 
-
+* {
+  color: #505050;
+}
 
 #app{
   height: 100%;
@@ -25,7 +27,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
-    background-color: #E8E8E8;
+    //background-color: #E8E8E8;
 
     .header{
       min-height: 55px;
@@ -41,7 +43,7 @@ body {
       }
       .middle-content{
         padding: 10px 5px;
-        min-width: 490px;
+        min-width: 510px;
         flex: 1 auto;
 
         .content-area{
@@ -50,29 +52,95 @@ body {
           margin: 0 5px 10px 5px;
 
           .post-cube{
-            font-size: 13px;
-            margin: 20px 0;
+            margin: 30px 0;
+            border: 1px solid #d9d9d9;
+            border-radius: 5px;
 
             .post-content{
+              font-size: 13px;
               background-color: #f9f9f9;
               border-radius: 5px;
               padding: 10px 10px 0 10px;
-              border: 1px solid #d9d9d9;
+              border-bottom: 1px solid #d9d9d9;
+              border-bottom-left-radius: 0;
+              border-bottom-right-radius: 0;
             }
-            .post-comments{
-              background-color: #f2f2f2;
-              border-radius: 15px;
-              padding: 8px 10px;
-              border: 1px solid #d9d9d9;
-              border-top: none;
+            .post-meta{
+              height: 35px;
+              border: none;
+              border-radius: 5px;
+              display: flex;
 
-              .express-comment{
-                border-radius: 20px;
-                width: 90%;
-                padding: 7px;
-                font-size: 14px;
-                border: 1px solid #d9d9d9;
+              .post-meta-item{
+                flex: 1 0 auto;
+                text-align: center;
+                align-items: center;
+                line-height: 35px;
+                font-weight: bold;
+                cursor: pointer;
+                margin: 2px;
+                border-radius: 5px;
+
+                &.meta-comment, &.meta-share{
+                  margin-left: 0;
+                }
+                &:hover{
+                  background-color: #f2f2f2;
+                }
               }
+            }
+            .post-comments-area{
+              background-color: #f2f2f2;
+              border-radius: 5px;
+              border-top-left-radius: 0;
+              border-top-right-radius: 0;
+              padding: 8px 10px;
+              border-top: 1px solid #d9d9d9;
+
+              .express-comment-wrapper{
+
+                padding: 10px 0;
+                border-bottom: 1px solid #d9d9d9;
+
+                textarea.express-comment{
+                  font-size: 12.5px;
+                  border-radius: 10px;
+                  width: 97%;
+                  padding: 7px;
+                  border: 1px solid #d9d9d9;
+                  resize: none;
+                  height: 38px;
+                }
+              }
+              .post-comments{
+                margin: 5px;
+
+                .post-comment{
+                  padding: 6px 10px;
+                  margin: 10px 0;
+                  border: 1px solid #d9d9d9;
+                  border-radius: 20px;
+                  background-color: #fff;
+                  border: none;
+
+                  .comment-from{
+                    font-size: 12.5px;
+                    &:hover{
+                      text-decoration: underline;
+                      cursor: pointer;
+                    }
+                    
+                  }
+                  .comment-body{
+                    font-size: 12.5px;
+                  }
+
+                  &:last-child{
+                    margin-bottom: 0;
+                  }
+                }
+              }
+              
             }
           }
           .post-cube:first-child{
@@ -85,7 +153,7 @@ body {
       }
       .right-content{
         padding: 5px;
-        min-width: 230px;
+        min-width: 225px;
       }
     }
     .footer{
@@ -97,9 +165,18 @@ body {
     }
   }
   .left-area,.main-area,.right-area, {}
-  .navigator, .middle-content,.right-content{
-    border: 2px solid #dfdfdf;
+  .header, .navigator, .middle-content,.right-content{
+    border: 1px solid #dfdfdf;
     ;
+  }
+  .header{
+    border-bottom: none;
+  }
+  .navigator{
+    border-right: none;
+  }
+  .middle-content{
+    border-right: none;
   }
 }
 
