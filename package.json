@@ -3,14 +3,15 @@
   "version": "0.1.0",
   "description": "Express and Find a Match",
   "engines": {
-    "npm": ">=3"
+    "npm": "8.4.0"
   },
   "scripts": {
     "preinstall": "node tools/nodeVersionCheck.js",
     "remove-demo": "babel-node tools/removeDemo.js",
     "start-message": "babel-node tools/startMessage.js",
     "prestart": "npm-run-all --parallel start-message",
-    "start": "npm-run-all --parallel test:watch open:src lint:watch",
+    "start1": "npm-run-all --parallel test:watch open:src lint:watch",
+    "start": "npm-run-all --parallel open:src",
     "api": "json-server --watch api/db.json --port 3004",
     "open:src": "babel-node tools/srcServer.js",
     "open:dist": "babel-node tools/distServer.js",
